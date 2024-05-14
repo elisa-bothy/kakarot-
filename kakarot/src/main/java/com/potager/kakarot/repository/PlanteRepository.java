@@ -4,10 +4,14 @@
  */
 package com.potager.kakarot.repository;
 
-/**
- *
- * @author Valentina Sarais
- */
-public class PlanteRepository {
-    
+import com.potager.kakarot.entities.Plantes;
+
+import org.springframework.data.repository.CrudRepository;
+
+
+public interface PlanteRepository extends CrudRepository<Plantes, Long> {
+
+    Plantes findByName(String name);
+
 }
+
