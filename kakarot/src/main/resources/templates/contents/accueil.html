@@ -6,6 +6,7 @@
 
 %@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <div class="container" id="container">
     <a class="createPlants" href="<c:url value="/ajouter"/>"><span  class="button">Ajouter une plante</span></a>
@@ -15,6 +16,7 @@
             <div class="plant">
                 <a href=" <c:url value="/visitor/news?id=${plants.id} "/>" class="article-link">
                     <img src="<c:url value='/assets/photos/${plants.filename}'/>" alt="${plants.title}"/>
+                </a>
             </div>
         </c:forEach>
     </div>

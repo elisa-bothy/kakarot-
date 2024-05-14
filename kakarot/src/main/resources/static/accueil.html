@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="shortcut icon" href="../../../ressources/static/img/citron.jpg"/>
+        <link rel="stylesheet" href="../../../resources/static/style.css" >
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <title>${param.title}</title>
+    </head>
+    <body>
+        <div class="container" id="container">
+            <a class="createPlants" href="<c:url value="/ajouter"/>"><span  class="button">Ajouter une plante</span></a>
+        <div class="MonthPlants">
+            <h2>Ce mois-ci</h2>
+            <c:forEach var="plants" items="${requestScope.monthPlants}">
+                <div class="plant">
+                    <a href=" <c:url value="/visitor/news?id=${plants.id} "/>" class="article-link">
+                    <img src="<c:url value='/assets/photos/${plants.filename}'/>" alt="${plants.title}"/>
+                    </a>
+                </div>
+            </c:forEach>
+        </div>
+        <div class="nextMonthPlants">
+            <h2>Le mois suivant</h2>
+            <div class="MonthPlants">
+                <h2>Le mois suivant</h2>
+                <div class="plant">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
