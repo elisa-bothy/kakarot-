@@ -2,11 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.potager.kakarot.controller;
+package controller;
 
-import com.potager.kakarot.repository.PlanteRepository;
+import service.PlanteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -14,12 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author Valentina Sarais
  */
 @Controller
-@RequestMapping("/plantes")
+@RequestMapping("/")
 public class ControleurKakarot {
 
-    
-      private final PlanteService planteService;
-      
+      private final PlanteService planteService;    
     /**
      *
      * @param planteService
@@ -29,6 +28,13 @@ public class ControleurKakarot {
 	public ControleurKakarot(PlanteService planteService) {
 		this.planteService = planteService;
 	}
+        
+    @GetMapping("/accueil")
+    public String accueil() {
+        return "accueil"; // Nom de la vue JSP (accueil.jsp)
+    }
+
+    
     }
     
 
