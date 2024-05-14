@@ -8,6 +8,6 @@ package com.potager.kakarot.entities;
  *
  * @author Valentina Sarais
  */
-public class Plante {
+public class Plantes {
     
 }
