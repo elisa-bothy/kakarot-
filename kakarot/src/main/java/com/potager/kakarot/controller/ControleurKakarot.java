@@ -17,11 +17,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/plantes")
 public class ControleurKakarot {
 
+    
       private final PlanteService planteService;
       
     /**
      *
      * @param planteService
+     * service qui fait le lien entre le metier et la data
      */
     @Autowired
 	public ControleurKakarot(PlanteService planteService) {
