@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.NamedQuery;
 import java.io.Serializable;
 
 /**
@@ -16,6 +17,7 @@ import java.io.Serializable;
  * @author Igor Martellote
  */
 @Entity
+@NamedQuery(name = "Plantes.findByName", query = "SELECT p FROM Plantew p WHERE p.nom = :nom")
 @SuppressWarnings("serial")
 public class Plantes implements Serializable {
 
