@@ -5,13 +5,14 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<header>
+    <div class="logo">
+        <a href="<c:url value="/acceuil"/>">
+            Kakarot
+        </a>
+    </div>
+    <ul>
+            <a href="<c:url value="/rechercher" />"><li>Rechercher</li></a>
+    </ul>
+</header>
