@@ -53,9 +53,10 @@ public class ControleurKakarot {
 
     @GetMapping("/rechercherRegion") //questioning url
     public String rechercherRegion(@RequestParam("query") String query, Model model) {
-        List<Plantes> searchResults = planteService.rechercherPlante(query);
+        String queryLowerCase = query.toLowerCase();
+        List<Plantes> searchResults = planteService.rechercherPlante(queryLowerCase);
         model.addAttribute("searchResults", searchResults);
-        model.addAttribute("searchQuery", query);
+        model.addAttribute("searchQuery", queryLowerCase);
         return "rechercherRegion";
     }
 
