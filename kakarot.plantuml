@@ -1,0 +1,85 @@
+
+@startuml Diagramme de Classes
+'projet'
+
+class Kakarot{
+    Initialise et lance Application ()
+}
+class ControleurKakarot {
+    Orchestre vue et modele
+}
+
+Kakarot --> ControleurKakarot
+ControleurKakarot --> modele.Plantes
+ControleurKakarot --> modele.Instructions
+ControleurKakarot --> vue.Vue
+package modele <<Folder>> {
+    class Jardinier{
+        ajouter nouvelle plante ()
+        supprimer plante ()
+        rechercher plante ()
+        afficher plante ()
+        modifier plante ()
+    }
+
+    class Plantes{
+        nom string
+        catégories string 
+        List Departements
+    }
+
+    class Instructions {
+        enum mois plantation
+        enum mois recolte
+        astuce string
+    }
+
+    enum Mois{
+        JANVIER, FEVRIER, MARS, AVRIL, MAI, JUIN, 
+        JUILLET, AOUT, SEPTEMBRE, OCTOBRE, NOVEMBRE, DECEMBRE
+    }
+
+    enum Départements{
+        AIN, AISNE, ALLIER, ALPES-DE-HAUTE-PROVENCE, 
+        HAUTES-ALPES, ALPES-MARITIMES, ARDÈCHE, ARDENNES, 
+        ARIÈGE, AUBE, AUDE, AVEYRON, BOUCHES-DU-RHÔNE, CALVADOS, 
+        CANTAL, CHARENTE, CHARENTE-MARITIME, CHER, CORRÈZE, 
+        CÔTE-D'OR, CÔTES-D'ARMOR, CREUSE, DORDOGNE, DOUBS, 
+        DRÔME, EURE, EURE-ET-LOIR, FINISTÈRE, GARD, HAUTE-GARONNE, 
+        GERS, GIRONDE, HÉRAULT, ILLE-ET-VILAINE, INDRE, 
+        INDRE-ET-LOIRE, ISÈRE, JURA, LANDES, LOIR-ET-CHER, 
+        LOIRE, HAUTE-LOIRE, LOIRE-ATLANTIQUE, LOIRET, LOT, 
+        LOT-ET-GARONNE, LOZÈRE, MAINE-ET-LOIRE, MANCHE, MARNE, 
+        HAUTE-MARNE, MAYENNE, MEURTHE-ET-MOSELLE, MEUSE, MORBIHAN, 
+        MOSELLE, NIÈVRE, NORD, OISE, ORNE, PAS-DE-CALAIS, 
+        PUY-DE-DÔME, PYRÉNÉES-ATLANTIQUES, HAUTES-PYRÉNÉES, 
+        PYRÉNÉES-ORIENTALES, BAS-RHIN, HAUT-RHIN, RHÔNE, 
+        HAUTE-SAÔNE, SAÔNE-ET-LOIRE, SARTHE, SAVOIE, HAUTE-SAVOIE, 
+        PARIS, SEINE-MARITIME, SEINE-ET-MARNE, YVELINES, 
+        DEUX-SÈVRES, SOMME, TARN, TARN-ET-GARONNE, VAR, 
+        VAUCLUSE, VENDÉE, VIENNE, HAUTE-VIENNE, VOSGES, 
+        YONNE, TERRITOIRE DE BELFORT, ESSONNE, HAUTS-DE-SEINE, 
+        SEINE-SAINT-DENIS, VAL-DE-MARNE, VAL-D'OISE
+    }
+
+    Plantes "n" *-->"1" Jardinier
+    Instructions "1" *-->"1" Plantes : contient
+}
+
+package vue <<Folder>> {
+    interface Vue {
+        Interfaçage avec l'utilisateur.
+    }
+class Vue implements vue.Vue {
+            --
+            --
+            Interfaçage graphique.
+        }
+    interface Vue {
+        AfficherVue()
+        ModifierVue()
+        SupprimerVue()
+        AjouterVue()
+    }
+}
+@enduml

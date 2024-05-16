@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package entities;
+package com.potager.kakarot.entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.NamedQuery;
+import jakarta.persistence.Table;
 import java.io.Serializable;
 
 /**
@@ -17,7 +18,7 @@ import java.io.Serializable;
  * @author Igor Martellote
  */
 @Entity
-@NamedQuery(name = "Plantes.findByName", query = "SELECT p FROM Plantew p WHERE p.nom = :nom")
+@Table(name = "plantes")
 @SuppressWarnings("serial")
 public class Plantes implements Serializable {
 

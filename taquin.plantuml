@@ -1,0 +1,87 @@
+@startuml diagclass
+
+class JeuDuTaquin {
+    --
+    --
+    Initialise et
+    lance l'application.
+}
+class ControleurJeu {
+    --
+    --
+    Orchestre vue et modèle.
+    Fait appliquer les
+    règles du jeu.
+}
+JeuDuTaquin --> ControleurJeu
+ControleurJeu --> modele.Melangeur
+ControleurJeu --> modele.Damier
+ControleurJeu <--> vue.Vue
+
+package modele <<Folder>> {
+
+    class Damier
+    class Carreau {
+        --
+        --
+        Un carreau positionné
+        sur le damier.
+    }
+    Damier o-- Carreau
+    class Melangeur {
+        --
+        --
+        Mélange les carreaux
+        du damier
+    }
+    Melangeur ..> Damier
+    enum DirectionCaseVide
+}
+
+package vue <<Folder>> {
+    interface Vue {
+        --
+        --
+        Interfaçage avec l'utilisateur.
+    }
+
+    package console <<Folder>> {
+        class VueConsole implements vue.Vue {
+            --
+            --
+            Interfaçage textuel.
+        }
+        VueConsole --> java.util.Scanner
+    }
+
+
+    package swing <<Folder>> {
+        class VueSwing implements vue.Vue {
+            --
+            --
+            Interfaçage graphique.
+        }
+        class SwingApp {
+            --
+            --
+            Application qui s'exécute
+            dans l'EDT.
+        }
+        class Tuile {
+            --
+            --
+            Composant graphique
+            correspondant à un carreau.
+        }
+        class EcouteurClavier implements java.awt.event.KeyListener  {
+            --
+            --
+            Gère les appuis de touches.
+        }
+        VueSwing --> SwingApp
+        SwingApp o-- Tuile
+        SwingApp --> EcouteurClavier
+    }
+}
+
+@enduml

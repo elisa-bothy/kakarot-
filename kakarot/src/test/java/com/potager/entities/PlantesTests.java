@@ -4,7 +4,7 @@
  */
 
 package com.potager.entities;
-import entities.Plantes;
+import com.potager.kakarot.entities.Plantes;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;

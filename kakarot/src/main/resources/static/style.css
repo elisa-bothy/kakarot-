@@ -6,4 +6,65 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     Created on : 14 mai 2024, 11:53:27
     Author     : Elisa Bothy
 */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #d3ffd3; /* Fond vert clair */
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #006400; /* Header vert foncé */
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer {
+    background-color: #006400; /* Footer vert foncé */
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.content {
+    margin: 50px auto; /* Espace pour le contenu */
+    width: 80%;
+    background-color: #ffe5b4; /* Orange clair */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.search-button, .kakarot-button {
+    background-color: #90ee90; /* Vert plus doux */
+    color: #006400;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.search-button {
+    margin-right: 10px; /* Ajoute un espace entre les boutons */
+}
+
+.plantes-mois, .plantes-mois-suivant {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #ffdab9; /* Orange pâle */
+}
+
+.plantes-mois-suivant {
+    margin-top: 10px;
+}
+
+.plantes-mois img, .plantes-mois-suivant img {
+    max-width: 100%;
+    max-height: 200px;
+    height: auto;
+}
 

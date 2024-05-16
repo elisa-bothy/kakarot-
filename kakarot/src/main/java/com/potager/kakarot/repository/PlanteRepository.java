@@ -2,19 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package repository;
+package com.potager.kakarot.repository;
 
-import entities.Plantes;
+import com.potager.kakarot.entities.Plantes;
 import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import org.springframework.data.repository.CrudRepository;
 
 
-public interface PlanteRepository extends CrudRepository<Plantes, Integer> {
+public interface PlanteRepository extends JpaRepository<Plantes, Integer> {
 
-    Plantes findByName(String name);
+    Plantes findByNom(String nom);
 
     public List<Plantes> findByRegionOrName(String nom, String region);
 
 }
-

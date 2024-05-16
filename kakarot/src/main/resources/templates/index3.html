@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Accueil - Votre Application de Jardinage</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+    </head>
+    <body>
+
+        <header>
+            <button th:text="'Kakarot'" onclick="alert('Kakarot!')" class="kakarot-button"></button>
+            <button th:text="'Recherche'" onclick="alert('Recherche!')" class="search-button"></button>
+
+        </header>
+
+        <div class="content">
+            <h1>Ne fais pas d'une chèvre ton jardinier, utilise Kakarot.</h1>
+            <!-- Encart pour les plantes du mois -->
+            <div class="plantes-mois">
+                <h2>Plante du mois</h2>
+                <!-- Utilisez le chemin de l'image récupéré du modèle -->
+                <img th:src="${imagePath}" alt="Image plante du mois">
+
+                <button th:text="'Recherche'" th:onclick="|window.location.href='@{/plantes-mois}'|" class="search-button"></button>
+
+            </div>
+            <!-- Encart pour les plantes du mois suivant -->
+            <div class="plantes-mois-suivant">
+                <h2>Plante du mois suivant</h2>
+                <!-- Utilisez une autre méthode pour récupérer l'image du mois suivant -->
+                <img th:src="@{/img/laitue.jpg}" alt="Image plante du mois suivant">
+                <p>Description plante du mois suivant</p>
+            </div>
+        </div>
+        <input type="submit" value="description" />
+        <!-- JavaScript pour la redirection -->
+
+        <footer>
+            <!-- Pied de page -->
+        </footer>
+
+    </body>
+</html>
+
+
