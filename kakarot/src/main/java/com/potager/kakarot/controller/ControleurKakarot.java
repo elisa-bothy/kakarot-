@@ -74,7 +74,6 @@ public class ControleurKakarot {
         return "plantes-mois-suivant";
     }
 
-
     public static String extractName(String path) {
         // Séparer le chemin en parties en utilisant le caractère '/'
         String[] parts = path.split("/");
@@ -85,17 +84,24 @@ public class ControleurKakarot {
         // Retourner le premier élément qui est le nom du fichier sans l'extension
         return nameParts[0];
     }
-    
-     @GetMapping("/ajouterPlante")
+
+    @GetMapping("/ajouterPlante")
     public String afficherFormulaireAjout(Model model) {
         model.addAttribute("plante", new Plantes());
         return "ajouterPlante"; // Le nom du fichier HTML Thymeleaf pour le formulaire d'ajout
+    }
+
+    @GetMapping("/ajoutPlanteOK")
+    public String afficherFormulaireAjoutOK(Model model) {
+        model.addAttribute("plante", new Plantes());
+        return "ajoutPlanteOK"; // on confirme que la plante a été ajouté
     }
 
     @PostMapping("/ajouterPlante")
     public String ajouterPlante(@ModelAttribute Plantes plante, RedirectAttributes redirectAttributes) {
         planteService.savePlante(plante);
         redirectAttributes.addFlashAttribute("message", "La plante a été bien ajouté !");
-        return "index3"; // Redirige l'utilisateur vers la page d'accueil après l'ajout de la plante
+        return "ajoutPlanteOK"; //
     }
+
 }
