@@ -7,10 +7,7 @@
         <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
     </head>
     <body>
-        <header>
-            <button th:text="'Kakarot'" onclick="alert('Kakarot!')" class="kakarot-button"></button>
-            <button th:text="'Recherche'" onclick="alert('Recherche!')" class="search-button"></button>
-        </header>
+        <header th:insert="~{fragments :: header}"></header>
 
         <div class="content">
             <h2>Ajouter une Plante</h2>
@@ -45,8 +42,6 @@
             </form>
         </div>
 
-        <footer>
-            <p>© Kakarot. Tous droits réservés. Développé par Caroline, Elisa, Igor, Valentina.</p>
-        </footer>
+        <footer th:insert="~{fragments :: footer}"></footer>
     </body>
 </html>

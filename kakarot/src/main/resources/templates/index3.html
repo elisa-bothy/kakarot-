@@ -9,18 +9,7 @@
     </head>
     <body>
 
-        <header>
-            <a href="/">
-                <button th:text="'Kakarot'" onclick="alert('Kakarot!')" class="kakarot-button"></button>
-            </a>
-            <a href="/rechercherRegion">
-                <input><button th:text="'Recherche'" onclick="alert('Recherche!')" class="search-button"></button>
-            </a>
-            <a href="/ajouterPlante">
-                <button th:text="'Ajouter'" onclick="alert('Ajouter!')" class="search-button"></button>
-            </a>
-
-        </header>
+        <header th:insert="~{fragments :: header}"></header>
 
         <div class="content">
             <h1>Ne fais pas d'une chèvre ton jardinier, utilise Kakarot.</h1>
