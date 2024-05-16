@@ -29,4 +29,9 @@ public class PlanteService {
     public Plantes findByNom(String nom) {
         return planteRepository.findByNom(nom);
     }
+    
+    public Plantes savePlante (Plantes plante) {
+        return planteRepository.save(plante);
+    }
+    
 }

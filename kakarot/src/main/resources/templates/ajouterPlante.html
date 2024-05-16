@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ajouter une Plante</title>
+        <!-- Inclure la feuille de style -->
+        <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+    </head>
+    <body>
+        <header>
+            <button th:text="'Kakarot'" onclick="alert('Kakarot!')" class="kakarot-button"></button>
+            <button th:text="'Recherche'" onclick="alert('Recherche!')" class="search-button"></button>
+        </header>
+
+        <div class="content">
+            <h2>Ajouter une Plante</h2>
+            <form action="#" th:action="@{/ajouterPlante}" th:object="${plante}" method="post">
+                <div>
+                    <label for="nom">Nom :</label>
+                    <input type="text" id="nom" th:field="*{nom}">
+                </div>
+                <!-- Ajoutez des encarts pour les autres informations de la plante -->
+                <div>
+                    <label for="categorie">Catégorie :</label>
+                    <input type="text" id="categorie" th:field="*{categorie}">
+                </div>
+                <div>
+                    <label for="astuce">Astuce :</label>
+                    <textarea id="astuce" th:field="*{astuce}"></textarea>
+                </div>
+                <div>
+                    <label for="planter">Planter :</label>
+                    <textarea id="planter" th:field="*{planter}"></textarea>
+                </div>
+                <div>
+                    <label for="recolter">Recolter :</label>
+                    <input type="recolter" id="recolter" th:field="*{recolter}">
+                </div>
+                <div>
+                    <label for="region">Région :</label>
+                    <input type="region" id="region" th:field="*{region}">
+                </div>
+
+                <!-- Autres encarts -->
+                <button type="submit" class="kakarot-button">Ajoute la Plante</button>
+            </form>
+        </div>
+
+        <footer>
+            <p>© Kakarot. Tous droits réservés. Développé par Caroline, Elisa, Igor, Valentina.</p>
+        </footer>
+    </body>
+</html>
