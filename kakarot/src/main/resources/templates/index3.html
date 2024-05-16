@@ -10,9 +10,16 @@
     <body>
 
         <header>
-            <button th:text="'Kakarot'" onclick="alert('Kakarot!')" class="kakarot-button"></button>
-            <button th:text="'Recherche'" onclick="alert('Recherche!')" class="search-button"></button>
-            <button th:text="'Ajouter'" th:href="@{/ajouterPlante}" class="search-button"></button>
+            <button class="kakarot-button">
+                <a th:href="@{/}" class="kakarot-button">KAKAROT</a>
+            </button>
+            <button class="search-button">
+                <a th:href="@{/recherche-plantes}" class="search-button">RECHERCHER</a>
+            </button>
+            <button class="search-button">
+                <a th:href="@{/ajouterPlante}" class="search-button">AJOUTER</a>
+            </button>
+
 
 
         </header>
