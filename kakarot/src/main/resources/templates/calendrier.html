@@ -14,7 +14,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
         <header th:insert="~{fragments :: header}"></header>
         
         <div class="container">
-            
+            <ul>
+                <li th:each="plante : ${plantes}">
+                    <div id="plante">
+                        <h2 th:text="${plante.planter}"></h2>
+                        <a href="/afficherPlante/+${plante.id}">
+                            <h2 th:text="${plante.nom}"></h2>
+                            <img src="${plante.planter}" alt="${plante.nom}"/>
+                        </a>
+                    </div>
+                </li>
+            </ul>
         </div>
         
         <footer th:insert="~{fragments :: footer}"></footer>

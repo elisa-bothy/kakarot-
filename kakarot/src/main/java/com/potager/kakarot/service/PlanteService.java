@@ -30,6 +30,10 @@ public class PlanteService {
         return planteRepository.findByNom(nom);
     }
     
+    public Plantes savePlante (Plantes plante) {
+        return planteRepository.save(plante);
+    }
+    
     
     public void deleteById (Integer id) {
         planteRepository.deleteById (id);

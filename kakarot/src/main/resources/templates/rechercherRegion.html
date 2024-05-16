@@ -12,11 +12,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     </head>
     <body>
         <header th:insert="~{fragments :: header}"></header>
-        
+
         <div class="container">
-            
+            <h1>Résultats de la recherche pour "<span th:text="${searchQuery}"></span>"</h1>
+            <ul>
+                <li th:each="plante : ${searchResults}">
+                    <div id="plante">
+                        <a href="/afficherPlante/+${plante.id}">
+                            <h2 th:text="${plante.nom}"></h2>
+                            <img src="${plante.planter}" alt="${plante.nom}"/>
+                        </a>
+                    </div>
+                </li>
+            </ul>
         </div>
-        
+
         <footer th:insert="~{fragments :: footer}"></footer>
     </body>
 </html>

@@ -3,7 +3,6 @@ package com.potager.kakarot.controller;
 import com.potager.kakarot.entities.Plantes;
 import java.time.LocalDate;
 import java.time.Month;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.potager.kakarot.service.ImagePropertiesService;
 import com.potager.kakarot.service.PlanteService;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import java.util.List;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -86,5 +87,16 @@ public class ControleurKakarot {
         // Retourner le premier élément qui est le nom du fichier sans l'extension
         return nameParts[0];
     }
+    
+     @GetMapping("/ajouterPlante")
+    public String afficherFormulaireAjout(Model model) {
+        model.addAttribute("plante", new Plantes());
+        return "ajouterPlante"; // Le nom du fichier HTML Thymeleaf pour le formulaire d'ajout
+    }
 
+    @PostMapping("/ajouterPlante")
+    public String ajouterPlante(@ModelAttribute Plantes plante) {
+        planteService.savePlante(plante);
+        return "redirect:/index3"; // Redirige l'utilisateur vers la page d'accueil après l'ajout de la plante
+    }
 }
