@@ -19,7 +19,29 @@
                 <p th:text="'Astuce : ' + ${astuce}">
                     <button th:text="'Recherche'" th:onclick="|window.location.href='@{/plantes-mois}'|" class="search-button"></button>
 
+    <div class="content">
+        <h1>Plantes du Mois.</h1>
+        <!-- Encart pour les plantes du mois -->
+        <div class="plantes-mois">
+            <h2>Description</h2>
+            <!-- Utilisez le chemin de l'image récupéré du modèle -->
+            <img th:src="${imagePath}" alt="Image plante du mois">
+            <p th:text="'Nom : ' + ${nom}">
+            <p th:text="'Astuce : ' + ${astuce}">
+            <p th:text=" 'planter : ' + ${planter}">
+            <p th:text=" 'recolter : ' + ${recolter}">
+            <p th:text=" ' region : ' + ${region}">
+                <button th:text="'Recherche'" th:onclick="|window.location.href='@{/plantes-mois}'|" class="search-button"></button>
+
+        </div>
+
+
+
+        <footer>
+            <!-- Pied de page -->
+        </footer>
+
             </div>
             <footer th:insert="~{fragments :: footer}"></footer>
     </body>
-</html>
+    </html>

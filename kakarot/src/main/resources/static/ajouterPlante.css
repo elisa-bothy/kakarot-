@@ -1,0 +1,81 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    background-color: #d3ffd3; /* Fond vert clair */
+    font-family: Arial, sans-serif;
+}
+
+/* Header */
+header {
+    background-color: #006400; /* Header vert foncé */
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Footer */
+footer {
+    background-color: #006400; /* Footer vert foncé */
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Contenu */
+.content {
+    margin: 50px auto; /* Espace pour le contenu */
+    width: 80%;
+    background-color: #ffe5b4; /* Orange clair */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Boutons */
+.search-button, .kakarot-button {
+    background-color: #90ee90; /* Vert plus doux */
+    color: #006400;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.search-button {
+    margin-right: 10px; /* Ajoute un espace entre les boutons */
+}
+
+/* Formulaire */
+form {
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+/* Message de succès */
+.success-message {
+    background-color: #90ee90; /* Vert plus doux */
+    color: #006400;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+}

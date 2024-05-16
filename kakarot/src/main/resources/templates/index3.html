@@ -19,18 +19,35 @@
                 <!-- Utilisez le chemin de l'image récupéré du modèle -->
                 <img th:src="${imagePath}" alt="Image plante du mois">
 
-                <button th:text="'Recherche'" th:onclick="|window.location.href='@{/plantes-mois}'|" class="search-button"></button>
+                <button th:text="'Description plante du mois'" th:onclick="|window.location.href='@{/plantes-mois}'|" class="search-button"></button>
 
             </div>
-            <!-- Encart pour les plantes du mois suivant -->
-            <div class="plantes-mois-suivant">
-                <h2>Plante du mois suivant</h2>
-                <!-- Utilisez une autre méthode pour récupérer l'image du mois suivant -->
-                <img th:src="@{/img/laitue.jpg}" alt="Image plante du mois suivant">
-                <p>Description plante du mois suivant</p>
-            </div>
         </div>
+        <div class="content">
+            <!-- Encart pour les plantes du mois suivant -->
+        <div class="plantes-mois-suivant">
+            <h2>Plante du mois suivant</h2>
+            <!-- Utilisez une autre méthode pour récupérer l'image du mois suivant -->
+            <img th:src="@{/img/laitue.jpg}" alt="Image plante du mois suivant">
+            <button th:text="'Description plante du mois suivant'" th:onclick="|window.location.href='@{/plantes-mois-suivant}'|" class="search-button"></button>
+
+        </div>
+        </div>
+
+        <!-- Encart pour les plantes du mois suivant -->
+            <!--<div class="plantes-mois-suivant">-->
+            <!--<h2>Plante du mois suivant</h2>-->
+            <!-- Utilisez une autre méthode pour récupérer l'image du mois suivant -->
+                <!-- <img th:src="${imagePath}" alt="Image plante du mois suivant">-->
+                <!--<button th:text="'Description plante du mois suivant'" th:onclick="|window.location.href='@{/plantes-mois-suivant}'|" class="search-button"></button>
+
+           </div>-->
+
+
+
         <input type="submit" value="description" />
+        <!-- <input type="submit" value="descriptionSuivant" />-->
+
         <!-- JavaScript pour la redirection -->
 
         <footer>

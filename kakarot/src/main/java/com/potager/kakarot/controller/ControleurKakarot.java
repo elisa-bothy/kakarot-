@@ -46,10 +46,15 @@ public class ControleurKakarot {
         Plantes planteDuMois = planteService.findByNom("courgette");
         System.out.println("Astuce :" + planteDuMois.getAstuce());
 
+        model.addAttribute("nom", planteDuMois.getNom());
         model.addAttribute("astuce", planteDuMois.getAstuce());
+        model.addAttribute("planter", planteDuMois.getPlanter());
+        model.addAttribute("recolter", planteDuMois.getRecolter());
+        model.addAttribute("region", planteDuMois.getRegion());
 
         return "plantes-mois";
     }
+
 
     @GetMapping("/rechercherRegion") //questioning url
     public String rechercherRegion(@RequestParam("query") String query, Model model) {
@@ -79,6 +84,27 @@ public class ControleurKakarot {
         return "calendrier";
     }
 
+    @GetMapping("/plantes-mois-suivant")
+    public String descriptionSuivant(Model model) {
+        Month currentMonth = LocalDate.now().getMonth();
+        String imagePath = imagePropertiesService.getImagePathForMonth(currentMonth.name());
+        model.addAttribute("imagePath", imagePath);
+
+        String legume = extractName(imagePath);
+        System.out.println("extractLegume : " + legume);
+
+        Plantes planteDuMois = planteService.findByNom("courgette");
+        System.out.println("Astuce :" + planteDuMois.getAstuce());
+
+        model.addAttribute("nom", planteDuMois.getNom());
+        model.addAttribute("astuce", planteDuMois.getAstuce());
+        model.addAttribute("planter", planteDuMois.getPlanter());
+        model.addAttribute("recolter", planteDuMois.getRecolter());
+        model.addAttribute("region", planteDuMois.getRegion());
+
+        return "plantes-mois-suivant";
+    }
+
     public static String extractName(String path) {
         // Séparer le chemin en parties en utilisant le caractère '/'
         String[] parts = path.split("/");
@@ -89,17 +115,24 @@ public class ControleurKakarot {
         // Retourner le premier élément qui est le nom du fichier sans l'extension
         return nameParts[0];
     }
-    
-     @GetMapping("/ajouterPlante")
+
+    @GetMapping("/ajouterPlante")
     public String afficherFormulaireAjout(Model model) {
         model.addAttribute("plante", new Plantes());
         return "ajouterPlante"; // Le nom du fichier HTML Thymeleaf pour le formulaire d'ajout
+    }
+
+    @GetMapping("/ajoutPlanteOK")
+    public String afficherFormulaireAjoutOK(Model model) {
+        model.addAttribute("plante", new Plantes());
+        return "ajoutPlanteOK"; // on confirme que la plante a été ajouté
     }
 
     @PostMapping("/ajouterPlante")
     public String ajouterPlante(@ModelAttribute Plantes plante, RedirectAttributes redirectAttributes) {
         planteService.savePlante(plante);
         redirectAttributes.addFlashAttribute("message", "La plante a été bien ajouté !");
-        return "index3"; // Redirige l'utilisateur vers la page d'accueil après l'ajout de la plante
+        return "ajoutPlanteOK"; //
     }
+
 }

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Accueil - Votre Application de Jardinage</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+    </head>
+    <body>
+
+        <header>
+            <button class="kakarot-button">
+                <a th:href="@{/}" class="kakarot-button">KAKAROT</a>
+            </button>
+            <button class="search-button">
+                <a th:href="@{/recherche-plantes}" class="search-button">RECHERCHER</a>
+            </button>
+            <button class="search-button">
+                <a th:href="@{/ajouterPlante}" class="search-button">AJOUTER</a>
+            </button>
+        </header>
+
+        <div class="content">
+            <h1>Yes Kakarot ! Ta plante a bien été ajouté ! </h1>
+        </div>
+        <footer>
+            <p>© Kakarot. Tous droits réservés. Développé par Caroline, Elisa, Igor, Valentina.</p>
+        </footer>
+
+    </body>
+</html>
