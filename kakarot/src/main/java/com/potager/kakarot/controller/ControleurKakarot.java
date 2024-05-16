@@ -12,6 +12,7 @@ import com.potager.kakarot.service.ImagePropertiesService;
 import com.potager.kakarot.service.PlanteService;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.util.List;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -95,8 +96,9 @@ public class ControleurKakarot {
     }
 
     @PostMapping("/ajouterPlante")
-    public String ajouterPlante(@ModelAttribute Plantes plante) {
+    public String ajouterPlante(@ModelAttribute Plantes plante, RedirectAttributes redirectAttributes) {
         planteService.savePlante(plante);
-        return "redirect:/index3"; // Redirige l'utilisateur vers la page d'accueil après l'ajout de la plante
+        redirectAttributes.addFlashAttribute("message", "La plante a été bien ajouté !");
+        return "index3"; // Redirige l'utilisateur vers la page d'accueil après l'ajout de la plante
     }
 }
