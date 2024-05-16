@@ -1,0 +1,26 @@
+@startuml DiagSeqPrincipal
+
+' Présente l'initialisation nécessaire au tout démarrage du jeu
+
+activate JeuDuTaquin
+
+JeuDuTaquin -> Vue ** : << create >>
+
+JeuDuTaquin -> ControleurJeu ** : << create >> (hauteurDamier, largeurDamier, vue)
+activate ControleurJeu
+
+ControleurJeu -> Damier ** : << create >>
+
+ControleurJeu -> Melangeur ** : << create >> (damier)
+deactivate ControleurJeu
+
+JeuDuTaquin -> ControleurJeu : demarrerPartie(nbMouvements)
+deactivate JeuDuTaquin
+
+activate ControleurJeu
+
+
+ControleurJeu -> Melangeur : melanger(nbMouvements)
+
+ControleurJeu -> Vue : demarrer()
+deactivate ControleurJeu
