@@ -65,7 +65,7 @@ public class ControleurKakarot {
         return "rechercherRegion";
     }
 
-    @GetMapping("/{id}") //questioning url
+    @GetMapping("/delete/+{id}") //questioning url
     public String deletePlante(@PathVariable("id") Integer id) {
         planteService.deleteById(id);
         return "redirect:/";
