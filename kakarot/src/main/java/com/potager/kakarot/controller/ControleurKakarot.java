@@ -1,5 +1,6 @@
 package com.potager.kakarot.controller;
 
+import com.potager.kakarot.entities.Plante;
 import com.potager.kakarot.entities.Plantes;
 import java.time.LocalDate;
 import java.time.Month;
@@ -55,7 +56,6 @@ public class ControleurKakarot {
         return "plantes-mois";
     }
 
-
     @GetMapping("/rechercherRegion") //questioning url
     public String rechercherRegion(@RequestParam("query") String query, Model model) {
         String queryLowerCase = query.toLowerCase();
@@ -65,10 +65,41 @@ public class ControleurKakarot {
         return "rechercherRegion";
     }
 
-    @GetMapping("/delete/+{id}") //questioning url
-    public String deletePlante(@PathVariable("id") Integer id) {
+    @PostMapping("/modifierPlante")
+    public String modifierPlante(@PathVariable ("id") Integer id,
+                               @ModelAttribute ( "plante" ) Plantes plante, Model model) {
+        
+        Plantes foundPlante = planteService.findById (id);
+        foundPlante.setId(id);
+        foundPlante.setNom(plante.getNom());
+        foundPlante.setAstuce(plante.getAstuce());
+        foundPlante.setPlanter(plante.getPlanter());
+        foundPlante.setCategorie(plante.getCategorie());
+        foundPlante.setRecolter(plante.getRecolter());
+        foundPlante.setRegion(plante.getRegion());
+        
+        planteService.updatePlante (foundPlante);
+        return "redirect:/calendrier"; 
+    }
+
+    @PostMapping("/delete/{id}")
+    public String supprimerPlante(@PathVariable ("id") Integer id) {
         planteService.deleteById(id);
-        return "redirect:/";
+        return "redirect:/deleteOk";
+    }
+
+    @GetMapping("/modifierPlante/{id}") //questioning url
+    public String modifierPlante(@PathVariable("id") Integer id, Model model) {
+        Plantes plante = planteService.findById(id);
+        model.addAttribute("plante", plante);
+        return "modifierPlante";
+    }
+    
+     @GetMapping("/afficherPlante/{id}") //questioning url
+    public String afficherPlante(@PathVariable("id") Integer id, Model model) {
+        Plantes plante = planteService.findById(id);
+        model.addAttribute("plante", plante);
+        return "afficherPlante";
     }
 
     /**
@@ -84,10 +115,11 @@ public class ControleurKakarot {
         return "calendrier";
     }
 
-    @GetMapping("/plantes-mois-suivant")
+    @GetMapping("/plante-mois-suivant")
     public String descriptionSuivant(Model model) {
         Month currentMonth = LocalDate.now().getMonth();
-        String imagePath = imagePropertiesService.getImagePathForMonth(currentMonth.name());
+        Month nextMonth = currentMonth.plus(1);
+        String imagePath = imagePropertiesService.getImagePathForMonth(nextMonth.name());
         model.addAttribute("imagePath", imagePath);
 
         String legume = extractName(imagePath);
@@ -102,7 +134,7 @@ public class ControleurKakarot {
         model.addAttribute("recolter", planteDuMois.getRecolter());
         model.addAttribute("region", planteDuMois.getRegion());
 
-        return "plantes-mois-suivant";
+        return "plante-mois-suivant";
     }
 
     public static String extractName(String path) {

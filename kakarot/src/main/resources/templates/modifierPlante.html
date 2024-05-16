@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Modifier une plante - Votre Application de Jardinage</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+    </head>
+    <body>
+        <header th:insert="~{fragments :: header}"></header>
+
+        <div class="container">
+            <form id="form-modifier" th:action="@{/plantes/modifier}" th:object="${plante}" method="post">
+                <input type="hidden" th:field="*{id}" />
+                <h2>Informations à modifier de la plante</h2>
+                <div><label for="nom">Nom:</label>
+                    <input class="infos" type="text" th:field="*{nom}" required></div>
+
+                <div><label for="region">Région:</label>
+                    <input class="infos" type="text" th:field="*{region}" required></div>
+
+                <div><label for="categorie">Catégorie:</label>
+                    <input class="infos" type="text" th:field="*{categorie}"></div>
+
+                <div><label for="astuce">Astuce:</label>
+                    <input class="infos" type="text" th:field="*{astuce}"></div>
+
+                <div><label for="planter">Mois de plantation:</label>
+                    <input class="infos" type="text" th:field="*{planter}"></div>
+
+                <div><label for="recolter">Mois de récolte:</label>
+                    <input class="infos" type="text" th:field="*{recolter}"></div>
+
+                <button type="submit">Sauvegarder</button>
+                <button type="reset">Annuler</button>
+            </form>
+
+           
+            <a th:href="@{/delete/{id}(id=${plante.id})}">
+                <button type="submit">Supprimer la plante</button>
+            </a>
+        </div>
+
+        <footer th:insert="~{fragments :: footer}"></footer>
+    </body>
+</html>

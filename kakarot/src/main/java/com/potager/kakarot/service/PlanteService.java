@@ -44,6 +44,14 @@ public class PlanteService {
      public List<Plantes> rechercherPlante (String query) {
         return planteRepository.findByRegionOrNom (query, query);
     }
+
+    public Plantes findById(Integer id) {
+        return planteRepository.findById (id).get();
+    }
+
+    public void updatePlante(Plantes plante) {
+        planteRepository.save(plante);
+    }
     
 
 }

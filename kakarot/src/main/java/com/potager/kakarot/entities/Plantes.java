@@ -31,8 +31,18 @@ public class Plantes implements Serializable {
     private String planter;
     private String recolter;
     private String region;
+    
+    
 
     //GET and SET
+    public void setId(int id) {    
+        this.id = id;
+    }
+    
+    public int getId() {
+        return id;
+    }
+
     public String getNom() {
         return nom;
     }

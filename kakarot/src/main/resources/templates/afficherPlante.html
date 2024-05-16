@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Plante trouvée, plante montrée - Votre Application de Jardinage</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+    </head>
+    <body>
+        <header th:insert="~{fragments :: header}"></header>
+
+        <div class="container">
+            <div>
+                <h2 th:text="${plante.nom}"></h2>
+                <p th:text="'Région: ' + ${plante.region}"></p>
+                <p th:text="'Catégorie: ' + ${plante.categorie}"></p>
+                <p th:text="'Astuce: ' + ${plante.astuce}"></p>
+                <p th:text="'Mois de plantation: ' + ${plante.planter}"></p>
+                <p th:text="'Mois de récolte: ' + ${plante.recolter}"></p>
+            </div>
+        </div>
+        
+        <a th:href="@{/modifierPlante/{id}(id=${plante.id})}">
+            <button>Modifier</button>
+        </a>
+
+        <footer th:insert="~{fragments :: footer}"></footer>
+    </body>
+</html>
