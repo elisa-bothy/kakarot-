@@ -14,6 +14,6 @@ public interface PlanteRepository extends JpaRepository<Plantes, Integer> {
 
     Plantes findByNom(String nom);
 
-    public List<Plantes> findByRegionOrName(String nom, String region);
+    public List<Plantes> findByRegionOrNom(String region, String nom);
 
 }
