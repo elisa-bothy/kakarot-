@@ -46,32 +46,32 @@ public class ControleurKakarot {
 
         model.addAttribute("astuce", planteDuMois.getAstuce());
 
-
         return "plantes-mois";
     }
-    
+
     @GetMapping("/rechercherRegion") //questioning url
-    public String rechercherRegion (@RequestParam("query") String query, Model model) {
-        List <Plantes> searchResults = planteService.rechercherPlante(query);
+    public String rechercherRegion(@RequestParam("query") String query, Model model) {
+        List<Plantes> searchResults = planteService.rechercherPlante(query);
         model.addAttribute("searchResults", searchResults);
         model.addAttribute("searchQuery", query);
         return "rechercherRegion";
     }
-    
-     @GetMapping("/{id}") //questioning url
-    public String deletePlante (@PathVariable ( "id" ) Integer id) {
-        planteService.deleteById (id);
+
+    @GetMapping("/{id}") //questioning url
+    public String deletePlante(@PathVariable("id") Integer id) {
+        planteService.deleteById(id);
         return "redirect:/";
     }
-    
+
     /**
      * Méthode pour la calendrier
+     *
      * @param model Le modèle utilisé pour transmettre des données à la vue
      * @return La vue "index"
      */
-     @GetMapping("/calendrier") //questioning url
-    public String calendrier (Model model) {
-        List <Plantes> plantes = planteService.list();
+    @GetMapping("/calendrier") //questioning url
+    public String calendrier(Model model) {
+        List<Plantes> plantes = planteService.list();
         model.addAttribute("plantes", plantes);
         return "calendrier";
     }
@@ -86,6 +86,5 @@ public class ControleurKakarot {
         // Retourner le premier élément qui est le nom du fichier sans l'extension
         return nameParts[0];
     }
-    
-    
+
 }

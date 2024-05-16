@@ -42,4 +42,6 @@ public class PlanteService {
      public List<Plantes> rechercherPlante (String query) {
         return planteRepository.findByRegionOrNom (query, query);
     }
+    
+
 }
