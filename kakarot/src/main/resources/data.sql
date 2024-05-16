@@ -9,5 +9,11 @@ CREATE TABLE plantes (
  recolter VARCHAR(250) DEFAULT NULL,
  region VARCHAR(250) DEFAULT NULL);
  INSERT INTO plantes (nom, categorie, astuce, planter, recolter, region)
-VALUES ('courgette', 'Légume', 'Limiter l’oïdium, Favoriser la fécondation des fleurs,espacement d’1 mètre à 2 mètres', 'Avril', 'Juin','Provence-Alpes-Côte dAzur');
+VALUES ('courgette', 'Légume', 'Limiter l’oïdium, Favoriser la fécondation des fleurs,espacement d’1 mètre à 2 mètres', 'Avril', 'Juin','Provence-Alpes-Côte dAzur'),
+('Tomate', 'Fruit', 'Il doit faire le double de la taille du pot en largeur et le triple en profondeur, "Attacher ses plants', 'Mai', 'Aout', 'Occitanie'),
+            ('Fenouil', 'Légume', 'apprécient aussi des arrosages fréquents, surtout si elles sont cultivées en pot', 'Mai', 'Juin','Bretagne'),
+            ('Citron', 'Fruit', 'omblez les espaces vides avec la terre de jardin, Ajoutez au fond du trou de plantation un engrais spécial agrumes', 'Mars', 'Juin','Ile-de-France'),
+            ('Jabuticaba', 'Fruit', 'Placer dans un vase mesurant 50 cm de diamètre et 50 cm de hauteur, Égoutter leau pour éviter la pourriture des racines', 'Avril', 'Septembre','Ile-de-France');
+
+
 
