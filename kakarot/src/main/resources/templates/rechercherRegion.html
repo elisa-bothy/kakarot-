@@ -7,14 +7,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Resultat de votre Recherche - Votre Application de Jardinage</title>
+        <title>Résultat de votre Recherche - Votre Application de Jardinage</title>
         <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
     </head>
     <body>
         <header th:insert="~{fragments :: header}"></header>
 
         <div class="container">
-            <h1>Résultats de la recherche pour "<span th:text="${searchQuery}"></span>"</h1>
+            <h1>Résultat(s) de la recherche pour "<span th:text="${searchQuery}"></span>"</h1>
             <ul>
                 <li th:each="plante : ${searchResults}">
                     <div id="plante">
