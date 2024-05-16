@@ -12,28 +12,23 @@
         <h1>Plantes du Mois.</h1>
         <!-- Encart pour les plantes du mois -->
         <div class="plantes-mois">
-            <h2>Plante du mois</h2>
+            <h2>Description</h2>
             <!-- Utilisez le chemin de l'image récupéré du modèle -->
             <img th:src="${imagePath}" alt="Image plante du mois">
+            <p th:text="'Nom : ' + ${nom}">
             <p th:text="'Astuce : ' + ${astuce}">
+            <p th:text=" 'planter : ' + ${planter}">
+            <p th:text=" 'recolter : ' + ${recolter}">
+            <p th:text=" ' region : ' + ${region}">
                 <button th:text="'Recherche'" th:onclick="|window.location.href='@{/plantes-mois}'|" class="search-button"></button>
 
         </div>
 
 
-            <!-- <div th:each="plante : ${plantes}">
-             <h2 th:text="${plante.nom}"></h2>
-           <p th:text="${plante.astuce}"></p>
-           <p>À planter en : <span th:text="${plante.planter}"></span></p>
-           <p>À récolter en : <span th:text="${plante.recolter}"></span></p>
-           <p>Région : <span th:text="${plante.region}"></span></p>
-       </div>
-   </body>
-  </html>-->
 
         <footer>
             <!-- Pied de page -->
         </footer>
 
     </body>
-</html>
+    </html>

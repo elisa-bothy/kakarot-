@@ -25,7 +25,6 @@ public class ImagePropertiesService {
         }
     }
 
-    // Récupère le chemin de l'image associé à un mois donné
     public String getImagePathForMonth(String month) {
         // La clé dans le fichier image.properties est sous la forme "image.[mois en minuscules]"
         return properties.getProperty("image." + month.toLowerCase());

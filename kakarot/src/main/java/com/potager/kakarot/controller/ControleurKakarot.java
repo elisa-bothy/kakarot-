@@ -41,11 +41,36 @@ public class ControleurKakarot {
         Plantes planteDuMois = planteService.findByNom("courgette");
         System.out.println("Astuce :" + planteDuMois.getAstuce());
 
+        model.addAttribute("nom", planteDuMois.getNom());
         model.addAttribute("astuce", planteDuMois.getAstuce());
-
+        model.addAttribute("planter", planteDuMois.getPlanter());
+        model.addAttribute("recolter", planteDuMois.getRecolter());
+        model.addAttribute("region", planteDuMois.getRegion());
 
         return "plantes-mois";
     }
+
+    @GetMapping("/plantes-mois-suivant")
+    public String descriptionSuivant(Model model) {
+        Month currentMonth = LocalDate.now().getMonth();
+        String imagePath = imagePropertiesService.getImagePathForMonth(currentMonth.name());
+        model.addAttribute("imagePath", imagePath);
+
+        String legume = extractName(imagePath);
+        System.out.println("extractLegume : " + legume);
+
+        Plantes planteDuMois = planteService.findByNom("courgette");
+        System.out.println("Astuce :" + planteDuMois.getAstuce());
+
+        model.addAttribute("nom", planteDuMois.getNom());
+        model.addAttribute("astuce", planteDuMois.getAstuce());
+        model.addAttribute("planter", planteDuMois.getPlanter());
+        model.addAttribute("recolter", planteDuMois.getRecolter());
+        model.addAttribute("region", planteDuMois.getRegion());
+
+        return "plantes-mois-suivant";
+    }
+
 
     public static String extractName(String path) {
         // Séparer le chemin en parties en utilisant le caractère '/'
