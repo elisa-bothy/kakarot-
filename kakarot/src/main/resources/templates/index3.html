@@ -28,11 +28,12 @@
         </div>
         <div class="content">
             <!-- Encart pour les plantes du mois suivant -->
-            <div class="plantes-mois-suivant">
-                <h2>Plante du mois suivant</h2>
-                <!-- Utilisez une autre méthode pour récupérer l'image du mois suivant -->
-                <img th:src="@{/img/laitue.jpg}" alt="Image plante du mois suivant">
-                <button th:text="'Description plante du mois suivant'" th:onclick="|window.location.href='@{/plante-mois-suivant}'|" class="search-button"></button>
+
+        <div class="plantes-mois-suivant">
+            <h2>Plante du mois suivant</h2>
+            <!-- Utilisez une autre méthode pour récupérer l'image du mois suivant -->
+            <img th:src="${imagePath2}" alt="Image plante du mois suivant">
+            <button th:text="'Description plante du mois suivant'" th:onclick="|window.location.href='@{/plantes-mois-suivant}'|" class="search-button"></button>
 
             </div>
         </div>

@@ -10,7 +10,7 @@
         <header th:insert="~{fragments :: header}"></header>
 
         <div class="container">
-            <form id="form-modifier" th:action="@{/plantes/modifier}" th:object="${plante}" method="post">
+            <form id="form-modifier" th:action="@{/modifierPlante/{id}(id=${plante.id})}" th:object="${plante}" method="post">
                 <input type="hidden" th:field="*{id}" />
                 <h2>Informations à modifier de la plante</h2>
                 <div><label for="nom">Nom:</label>

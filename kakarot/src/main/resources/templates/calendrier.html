@@ -20,7 +20,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                         <h2 th:text="${plante.planter}"></h2>
                         <a th:href="@{/afficherPlante/{id}(id=${plante.id})}">
                             <h2 th:text="${plante.nom}"></h2>
-                            <img src="${plante.planter}" alt="${plante.nom}"/>
                         </a>
                     </div>
                 </li>
