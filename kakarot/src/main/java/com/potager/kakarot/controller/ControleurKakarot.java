@@ -1,6 +1,5 @@
 package com.potager.kakarot.controller;
 
-import com.potager.kakarot.entities.Plante;
 import com.potager.kakarot.entities.Plantes;
 import java.time.LocalDate;
 import java.time.Month;
@@ -60,7 +59,7 @@ public class ControleurKakarot {
         return "plantes-mois";
     }
 
-    @GetMapping("/rechercherRegion") //questioning url
+    @GetMapping("/rechercherRegion") // questioning url
     public String rechercherRegion(@RequestParam("query") String query, Model model) {
         String queryLowerCase = query.toLowerCase();
         List<Plantes> searchResults = planteService.rechercherPlante(queryLowerCase);
@@ -92,7 +91,7 @@ public class ControleurKakarot {
         return "deleteOk";
     }
 
-    @GetMapping("/modifierPlante/{id}") //questioning url
+    @GetMapping("/modifierPlante/{id}") // questioning url
     public String modifierPlante(@PathVariable("id") Integer id, Model model) {
         Plantes plante = planteService.findById(id);
         model.addAttribute("plante", plante);
@@ -114,7 +113,7 @@ public class ControleurKakarot {
         return "redirect:/calendrier";
     }
 
-    @GetMapping("/afficherPlante/{id}") //questioning url
+    @GetMapping("/afficherPlante/{id}") // questioning url
     public String afficherPlante(@PathVariable("id") Integer id, Model model) {
         Plantes plante = planteService.findById(id);
         model.addAttribute("plante", plante);
@@ -127,7 +126,7 @@ public class ControleurKakarot {
      * @param model Le modèle utilisé pour transmettre des données à la vue
      * @return La vue "index"
      */
-    @GetMapping("/calendrier") //questioning url
+    @GetMapping("/calendrier") // questioning url
     public String calendrier(Model model) {
         List<Plantes> plantes = planteService.list();
         model.addAttribute("plantes", plantes);
